@@ -39,7 +39,7 @@ Edit your Docker Compose file, add new `backup` service:
   ...
 
   backup:
-    image: dazlabteam/postgres-backup-azure
+    image: dazlabteam/postgres-backup-azure:12
     environment:
       POSTGRES_HOST: db
       POSTGRES_DATABASE: <your db name>
@@ -56,7 +56,7 @@ Then run
 docker-compose -f <path to docker compose yaml> run --rm backup
 ```
 
-or by specifying env variables via command line:
+or by specifying env variables via the command line:
 
 ```
 docker-compose -f <path to docker compose yaml> run --rm \
@@ -88,7 +88,7 @@ kubectl create secret generic postgres-backup-azure \
 then create CronJob using the cronjob spec file from this repo:
 
 ```
-kupectl apply -f postgres-backup-azure.cronjob.yaml
+kubectl apply -f postgres-backup-azure.cronjob.yaml
 ```
 
 By default, it will run every day at 00:00. To change this, edit cronjob and specify 

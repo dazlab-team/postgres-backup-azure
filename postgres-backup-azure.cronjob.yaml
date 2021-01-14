@@ -11,8 +11,8 @@ spec:
         spec:
           containers:
             - name: postgres-backup-azure
-              image: dazlabteam/postgres-backup-azure
+              image: dazlabteam/postgres-backup-azure:12
               envFrom:
                 - secretRef:
-                  name: postgres-backup-azure
+                    name: postgres-backup-azure
           restartPolicy: Never
